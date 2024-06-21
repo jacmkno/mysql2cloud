@@ -4,8 +4,8 @@
 create_env() {
     python3 -m venv venv
     source venv/bin/activate
-    pip install --upgrade pip
-    pip install pydrive
+    pip3 install --upgrade pip
+    pip3 install pydrive
     deactivate
 }
 
