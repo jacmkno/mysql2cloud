@@ -21,6 +21,9 @@ mysql_args=("${@:1:$#-1}")
 # Determine the secure_file_priv setting
 secure_file_priv=$(mysql "${mysql_args[@]}" -N -e "SHOW VARIABLES LIKE 'secure_file_priv'" | awk '{ print $2 }')
 
+# Remove trailing slash from secure_file_priv if it exists
+secure_file_priv=$(echo $secure_file_priv | sed 's:/*$::')
+
 # Create a named pipe in the appropriate directory
 if [ -n "$secure_file_priv" ] && [ "$secure_file_priv" != "NULL" ]; then
   pipe_dir="$secure_file_priv"
