@@ -6,6 +6,8 @@ create_env() {
     source venv/bin/activate
     pip3 install --upgrade pip
     pip3 install pydrive
+    pip3 install google-auth google-auth-oauthlib google-auth-httplib2
+    pip install mysql-connector-python==8.0.23
     deactivate
 }
 
@@ -22,3 +24,4 @@ source venv/bin/activate
 
 # Indicate that the environment is ready
 echo "Virtual environment activated. You can now run your script with: python3 script.py <table_name>"
+
